@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirada de Cartas del Maestro</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .card-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .card { border: 1px solid #000; padding: 10px; width: 150px; text-align: center; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Tirada de Cartas del Maestro</h1>
+    <button onclick="drawCards(3)">Tirar 3 Cartas</button>
+    <button onclick="drawCards(5)">Tirar 5 Cartas</button>
+    <div class="card-container" id="cardContainer"></div>
+    
+    <script>
+        const cartas = [
+            { nombre: "Carta 1: Nicodemo", significado: "El renacer espiritual." },
+            { nombre: "Carta 2: Bartimeo", significado: "Abrir los ojos a la verdad." },
+            { nombre: "Carta 3: La Pecadora", significado: "Liberación de la culpa." },
+            { nombre: "Carta 4: El Todo", significado: "Conexión con la totalidad." },
+            { nombre: "Carta 5: El Amor", significado: "El amor incondicional." },
+            { nombre: "Carta 6: El Conocimiento", significado: "Conocer al Maestro es conocerse uno mismo." },
+            { nombre: "Carta 7: El Ego", significado: "Sanar el ego y ser uno mismo." },
+            { nombre: "Carta 8: El Vacío", significado: "Vaciarse para llenarse de vida." },
+            { nombre: "Carta 9: El Águila", significado: "vuelo, Visión y Garra." },
+            { nombre: "Carta 10: La Simplicidad", significado: "El Wu Wei, dejar fluir sin esfuerzo." },
+            { nombre: "Carta 11: La Iluminación", significado: "Plenitud, Despertar y Claridad." },
+            { nombre: "Carta 12: La Sombra", significado: "Superarción personal, sin divisiones." },
+            { nombre: "Carta 13: La Percepción", significado: "Vemos lo que somos." },
+            { nombre: "Carta 14: La Introspección", significado: "Conexión con el Maestro." },
+            { nombre: "Carta 15: La Diversidad", significado: "Ser uno mismo, único e irrepetible." },
+            { nombre: "Carta 16: El Infinito", significado: "Entre 0 y 1 hay un infinito." },
+            { nombre: "Carta 17: La Separación", significado: "El error original." },
+            { nombre: "Carta 18: La Creación", significado: "vive en el mundo sin ser del mundo." },
+            { nombre: "Carta 19: La Consciencia", significado: "El poder para estar conectado con El Todo." },
+            { nombre: "Carta 20: El Maestro", significado: "Es el camino, la verdad y la vida." },
+            { nombre: "Carta 22: La Vida", significado: "El sentido último del camino." }
+        ];
+
+        function drawCards(num) {
+            const shuffled = cartas.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, num);
+            const container = document.getElementById("cardContainer");
+            container.innerHTML = "";
+            selected.forEach(card => {
+                const cardElement = document.createElement("div");
+                cardElement.className = "card";
+                cardElement.innerHTML = `<strong>${card.nombre}</strong><br>${card.significado}`;
+                container.appendChild(cardElement);
+            });
+        }
+    </script>
+</body>
+</html>
+
